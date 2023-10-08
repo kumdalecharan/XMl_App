@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>XML Data</title>
+<style type="text/css">
+body {
+	text-align: center;
+}
+
+span {
+	font-size: 30px;
+	font-weight: bolder;
+}
+
+form {
+	margin-top: 1cm;
+}
+
+button {
+
+}
+</style>
+</head>
+<body>
+	<span th:text="${tableName}" style="text-transform: uppercase;"></span>
+	<span>.xml</span>
+
+	<form action="/download" method="get">
+		<input type="hidden" name="tableName" th:value="${tableName}">
+		<input type="Submit" value="Download"> &nbsp&nbsp&nbsp&nbsp&nbsp
+		<button><a href="/">Home</a></button>
+	</form>
+</body>
+</html>

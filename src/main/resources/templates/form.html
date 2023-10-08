@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>FORM</title>
+</head>
+<body>
+	<h1>Upload XML File</h1>
+	<br>
+
+	<div style="border: 1px solid; padding: 10px; width: 6cm;">
+		<div>
+			<font th:text="${msg}" color="green"></font>
+		</div>
+		<br>
+		<form action="/upload" method="post" enctype="multipart/form-data">
+			<input type="file" name="file" accept=".xml" required="required">
+			<br> <br> <input type="submit" value="Upload">
+		</form>
+	</div>
+	<br>
+	<h1>Available Tables</h1>
+
+	<div style="border: 1px solid; padding: 10px; width: 6cm;">
+		<form th:action="@{/generateXml}" method="post">
+			<table>
+				<tr>
+					<td><select name="selectedTable">
+							<option disabled="disabled" selected="selected">Select
+								table</option>
+							<th:block th:each="tbName : ${tables}">
+								<option th:text="${tbName}"></option>
+							</th:block>
+					</select></td>
+				</tr>
+
+			</table>
+			<br> <br> <br>
+			<button type="submit">Generate XML</button>
+		</form>
+	</div>
+</body>
+</html>
